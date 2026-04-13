@@ -1,5 +1,17 @@
 # Compliance as Types
 
+## Declare Once, Prove Once, Render Anywhere
+
+Compliance controls are Rust types. Proofs attach to types, not platforms.
+The `Backend` trait has 7 rendering implementations -- every backend shares
+the same Control enum, the same invariant mappings, the same BLAKE3
+certification. Adding a new backend inherits ALL existing compliance proofs.
+
+pangea-sim proves the entire chain at zero cost: simulate → check 10
+invariants across 10,000+ random configs → verify baselines across 5
+frameworks → certify with BLAKE3 → deploy. No cloud API called. 856 tests
+across 6 crates prove zero-cost infrastructure verification.
+
 ## The Thesis: Non-Compliance as a Compile Error
 
 Traditional compliance follows a discover-and-remediate cycle:
