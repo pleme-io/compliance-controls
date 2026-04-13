@@ -2,6 +2,17 @@
 
 Compliance controls as Rust types for the pleme-io platform.
 
+## Declare Once, Prove Once, Render Anywhere
+
+Compliance controls are Rust types. Proofs attach to types, not platforms.
+The 7 rendering backends (Terraform, Pulumi, Crossplane, Ansible, Pangea,
+Steampipe) all share the same control types, invariant mappings, and BLAKE3
+certification. Adding a new backend inherits ALL existing compliance proofs.
+
+pangea-sim proves the entire compliance chain at zero cost -- no cloud API
+called. 856 tests across 6 crates verify structure, invariants, compliance,
+and certification before any infrastructure exists.
+
 ## Purpose
 
 Encodes compliance controls (NIST 800-53, CIS AWS, FedRAMP, PCI-DSS, SOC2) as Rust types.

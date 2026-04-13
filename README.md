@@ -2,6 +2,19 @@
 
 Compliance controls as Rust types. Non-compliance becomes a compile error.
 
+## Declare Once, Prove Once, Render Anywhere
+
+Compliance controls are Rust types. Proofs attach to types, not platforms.
+The `Backend` trait has 7 rendering implementations (Terraform, Pulumi,
+Crossplane, Ansible, Pangea, Steampipe) -- all share the same control types,
+the same invariant mappings, the same BLAKE3 certification. Adding a new
+backend inherits ALL existing compliance proofs.
+
+The simulation platform (pangea-sim) proves compliance at zero cost: simulate
+infrastructure → check 10 invariants → verify baselines across 5 frameworks
+→ certify with BLAKE3 → deploy. No cloud API called until deployment is
+proven correct and compliant.
+
 ## The Thesis
 
 Traditional compliance is audit-after-deploy: build infrastructure, hire auditors,
