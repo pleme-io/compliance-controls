@@ -40,10 +40,7 @@ fn all_ten_invariants_present() {
     ];
     assert_eq!(ALL_INVARIANTS.len(), 10);
     for inv in &expected {
-        assert!(
-            ALL_INVARIANTS.contains(inv),
-            "Missing invariant: {inv}"
-        );
+        assert!(ALL_INVARIANTS.contains(inv), "Missing invariant: {inv}");
     }
 }
 

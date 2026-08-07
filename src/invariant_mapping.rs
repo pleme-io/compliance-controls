@@ -58,12 +58,14 @@ pub fn invariants_for_nist(family: NistFamily, number: u8) -> Vec<&'static str> 
     ALL_INVARIANTS
         .iter()
         .filter(|inv| {
-            controls_for_invariant(inv).iter().any(|c| match (c, &target) {
-                (Control::Nist(a), Control::Nist(b)) => {
-                    a.family == b.family && a.number == b.number
-                }
-                _ => false,
-            })
+            controls_for_invariant(inv)
+                .iter()
+                .any(|c| match (c, &target) {
+                    (Control::Nist(a), Control::Nist(b)) => {
+                        a.family == b.family && a.number == b.number
+                    }
+                    _ => false,
+                })
         })
         .copied()
         .collect()
